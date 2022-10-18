@@ -1,12 +1,15 @@
-package com.example.demospringapp;
+package com.example.demospringapp.producer;
 
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
+// Repository class
+
 @Repository
+@Profile("simple")
 public class SimpleMessageProducer implements MessageProducer{
     @Override
-    public void produceMessage() {
-        System.out.println("Example message: " + System.currentTimeMillis());
+    public String produceMessage() {
+        return "Example message: " + System.currentTimeMillis();
     }
 }
